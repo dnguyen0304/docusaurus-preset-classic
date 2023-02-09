@@ -1,0 +1,51 @@
+{
+    "name": "@docupotamus/docusaurus-preset-classic",
+    "version": "0.0.0",
+    "description": "Docusaurus classic preset.",
+    "main": "lib/index.js",
+    "types": "src/docusaurus-preset-classic.d.ts",
+    "dependencies": {
+        "@docusaurus/utils-validation": "^2.2.x"
+    },
+    "devDependencies": {
+        "@docusaurus/types": "^2.2.x",
+        "@types/react": "^16.8.4 || ^17.0.0",
+        "@types/react-dom": "^16.8.4 || ^17.0.0",
+        "typescript": "^4.7.4"
+    },
+    "peerDependencies": {
+        "react": "^16.8.4 || ^17.0.0",
+        "react-dom": "^16.8.4 || ^17.0.0"
+    },
+    "engines": {
+        "node": ">=16.14"
+    },
+    "scripts": {
+        "build": "tsc",
+        "watch": "tsc --watch"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dnguyen0304/docusaurus-preset-classic.git"
+    },
+    "keywords": [
+        "react",
+        "docusaurus",
+        "docusaurus-plugin",
+        "docusaurus-theme",
+        "static site generator",
+        "documentation",
+        "open source",
+        "plugins",
+        "themes",
+        "markdown",
+        "mdx",
+        "docusaurus-preset"
+    ],
+    "author": "Duy Nguyen <dnguyen0304@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/dnguyen0304/docusaurus-preset-classic/issues"
+    },
+    "homepage": "https://github.com/dnguyen0304/docusaurus-preset-classic#readme"
+}
