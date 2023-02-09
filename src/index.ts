@@ -39,9 +39,10 @@ export default function preset(
 
     const themes: PluginConfig[] = [];
     themes.push(
-        makePluginConfig('@docusaurus/theme-classic', resolveTheme(theme)));
-    themes.push(
-        makePluginConfig('@docupotamus/docusaurus-theme-task-list'));
+        makePluginConfig('@docusaurus/theme-classic', resolveTheme(theme)),
+        makePluginConfig('@docupotamus/docusaurus-theme-command-menu'),
+        makePluginConfig('@docupotamus/docusaurus-theme-task-list'),
+    );
     if (algolia) {
         themes.push(require.resolve('@docusaurus/theme-search-algolia'));
     }
