@@ -30,10 +30,8 @@
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
         "baseUrl": ".",
-        "moduleResolution": "node16",
         "types": [
             "node",
-            "@docusaurus/theme-classic",
         ],
     },
     "include": [
