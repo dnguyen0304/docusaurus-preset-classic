@@ -40,9 +40,12 @@ export default function preset(
     const themes: PluginConfig[] = [];
     themes.push(
         makePluginConfig('@docusaurus/theme-classic', resolveTheme(theme)));
+    themes.push(
+        makePluginConfig('@docupotamus/docusaurus-theme-task-list'));
     if (algolia) {
         themes.push(require.resolve('@docusaurus/theme-search-algolia'));
     }
+
     if ('gtag' in themeConfig) {
         throw new Error(
             'The "gtag" field in themeConfig should now be specified as option for plugin-google-gtag. For preset-classic, simply move themeConfig.gtag to preset options. More information at https://github.com/facebook/docusaurus/pull/5832.',
@@ -86,7 +89,7 @@ export default function preset(
         );
     }
 
-    return { themes, plugins };
+    return { plugins, themes };
 };
 
 export type { Options, ThemeConfig };
