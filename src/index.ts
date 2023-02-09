@@ -1,8 +1,7 @@
 import type {
     LoadContext,
     PluginConfig,
-    PluginOptions,
-    Preset
+    PluginOptions, Preset
 } from '@docusaurus/types';
 import type { Options, ThemeConfig } from './options';
 
@@ -37,23 +36,7 @@ export default function preset(
     } = opts;
 
     const themes: PluginConfig[] = [];
-    const customCssClassic = require.resolve('@docupotamus/docusaurus-styles-classic');
-    let themeResolved = theme;
-    if (!themeResolved) {
-        themeResolved = {
-            customCss: [],
-        };
-    }
-    if (themeResolved.customCss === undefined) {
-        themeResolved.customCss = customCssClassic;
-    }
-    if (typeof themeResolved.customCss === 'string') {
-        themeResolved.customCss = [themeResolved.customCss, customCssClassic];
-    } else {
-        themeResolved.customCss.push(customCssClassic);
-    }
-    console.log(themeResolved);
-    themes.push(makePluginConfig('@docusaurus/theme-classic', themeResolved));
+    themes.push(makePluginConfig('@docusaurus/theme-classic', theme));
     if (algolia) {
         themes.push(require.resolve('@docusaurus/theme-search-algolia'));
     }
