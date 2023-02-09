@@ -15,7 +15,7 @@ function makePluginConfig(
         return [require.resolve(source), options];
     }
     return require.resolve(source);
-}
+};
 
 export default function preset(
     context: LoadContext,
@@ -87,6 +87,6 @@ export default function preset(
     }
 
     return { themes, plugins };
-}
+};
 
 export type { Options, ThemeConfig };
