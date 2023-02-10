@@ -49,8 +49,6 @@ export default function preset(
             { swizzleIsEnabled: false },
         ),
         makePluginConfig('@docupotamus/docusaurus-theme-task-list'),
-        // TODO(dnguyen0304): Validate the last theme is
-        //   "...docusaurus-preset-classic/lib/plugin/index.js".
         makePluginConfig('./plugin'),
     );
 
@@ -97,6 +95,14 @@ export default function preset(
         );
     }
 
+    const lastTheme = themes.at(-1)?.toString() ?? '';
+    const isInternalTheme = (
+        lastTheme.includes('docusaurus-preset-classic')  // repository name
+        && lastTheme.endsWith('plugin/index.js')  // sub-directory name
+    );
+    if (lastTheme && !isInternalTheme) {
+        throw new Error(`Expected the last theme to be the preset's internal theme but instead found "${lastTheme}". Try checking the themes element order.`);
+    }
     return { plugins, themes };
 };
 
