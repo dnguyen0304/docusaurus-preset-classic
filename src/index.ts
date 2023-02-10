@@ -45,6 +45,9 @@ export default function preset(
             { swizzleIsEnabled: false },
         ),
         makePluginConfig('@docupotamus/docusaurus-theme-task-list'),
+        // TODO(dnguyen0304): Validate the last theme is
+        //   "...docusaurus-preset-classic/lib/plugin/index.js".
+        makePluginConfig('./plugin'),
     );
     if (algolia) {
         themes.push(require.resolve('@docusaurus/theme-search-algolia'));
