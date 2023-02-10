@@ -39,7 +39,11 @@ export default function preset(
 
     const themes: PluginConfig[] = [];
     themes.push(
-        makePluginConfig('@docusaurus/theme-classic', resolveTheme(theme)),
+        makePluginConfig('@docusaurus/theme-classic', resolveTheme(theme)));
+    if (algolia) {
+        themes.push(require.resolve('@docusaurus/theme-search-algolia'));
+    }
+    themes.push(
         makePluginConfig(
             '@docupotamus/docusaurus-theme-command-menu',
             { swizzleIsEnabled: false },
@@ -49,9 +53,6 @@ export default function preset(
         //   "...docusaurus-preset-classic/lib/plugin/index.js".
         makePluginConfig('./plugin'),
     );
-    if (algolia) {
-        themes.push(require.resolve('@docusaurus/theme-search-algolia'));
-    }
 
     if ('gtag' in themeConfig) {
         throw new Error(
