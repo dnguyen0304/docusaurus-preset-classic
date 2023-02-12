@@ -1,10 +1,8 @@
 import type { Plugin } from '@docusaurus/types';
 
 export default function theme(): Plugin<undefined> {
-    const name = 'preset-classic';
-
     return {
-        name: `docupotamus-theme-${name}`,
+        name: 'docupotamus-theme-preset-classic',
 
         getThemePath() {
             return '../../lib/plugin/theme';
