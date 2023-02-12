@@ -53,6 +53,10 @@ export default function preset(
             { swizzleIsEnabled: false },
         ),
         makePluginConfig(
+            '@docupotamus/docusaurus-theme-editor',
+            { swizzleIsEnabled: false },
+        ),
+        makePluginConfig(
             '@docupotamus/docusaurus-theme-environment-variables',
         ),
         makePluginConfig(
