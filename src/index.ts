@@ -76,7 +76,7 @@ export default function preset(
 
     const plugins: PluginConfig[] = [];
     if (docs !== false) {
-        plugins.push(makePluginConfig('@docusaurus/plugin-content-docs', docs));
+        plugins.push(makePluginConfig('@docupotamus/docusaurus-plugin-editor', docs));
     }
     if (blog !== false) {
         plugins.push(makePluginConfig('@docusaurus/plugin-content-blog', blog));
