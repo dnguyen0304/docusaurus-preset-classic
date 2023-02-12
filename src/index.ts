@@ -48,6 +48,10 @@ export default function preset(
             '@docupotamus/docusaurus-theme-command-menu',
             { swizzleIsEnabled: false },
         ),
+        makePluginConfig(
+            '@docupotamus/docusaurus-theme-focus-mode',
+            { swizzleIsEnabled: false },
+        ),
         makePluginConfig('@docupotamus/docusaurus-theme-task-list'),
         makePluginConfig('./plugin'),
     );
