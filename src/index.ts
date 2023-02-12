@@ -39,7 +39,11 @@ export default function preset(
 
     const themes: PluginConfig[] = [];
     themes.push(
-        makePluginConfig('@docusaurus/theme-classic', resolveTheme(theme)));
+        // TODO(dnguyen0304): Investigate why makePluginConfig must not be used.
+        //   The error is "The tag <admonition> is unrecognized in this browser.
+        //   If you meant to render a React component, start its name with an
+        //   uppercase letter."
+        ['@docusaurus/theme-classic', resolveTheme(theme)]);
     if (algolia) {
         themes.push(require.resolve('@docusaurus/theme-search-algolia'));
     }
@@ -47,6 +51,9 @@ export default function preset(
         makePluginConfig(
             '@docupotamus/docusaurus-theme-command-menu',
             { swizzleIsEnabled: false },
+        ),
+        makePluginConfig(
+            '@docupotamus/docusaurus-theme-environment-variables',
         ),
         makePluginConfig(
             '@docupotamus/docusaurus-theme-focus-mode',
