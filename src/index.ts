@@ -102,6 +102,12 @@ export default function preset(
     if (isProd && sitemap !== false) {
         plugins.push(makePluginConfig('@docusaurus/plugin-sitemap', sitemap));
     }
+    plugins.push(
+        makePluginConfig(
+            '@docupotamus/docusaurus-plugin-read-time',
+            { swizzleIsEnabled: false },
+        ),
+    );
     if (Object.keys(rest).length > 0) {
         throw new Error(
             `Unrecognized keys ${Object.keys(rest).join(
