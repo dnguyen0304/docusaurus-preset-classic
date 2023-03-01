@@ -47,25 +47,6 @@ export default function preset(
     if (algolia) {
         themes.push(require.resolve('@docusaurus/theme-search-algolia'));
     }
-    themes.push(
-        makePluginConfig(
-            '@docupotamus/docusaurus-theme-command-menu',
-            { swizzleIsEnabled: false },
-        ),
-        makePluginConfig(
-            '@docupotamus/docusaurus-theme-editor',
-            { swizzleIsEnabled: false },
-        ),
-        makePluginConfig(
-            '@docupotamus/docusaurus-theme-environment-variables',
-        ),
-        makePluginConfig(
-            '@docupotamus/docusaurus-theme-focus-mode',
-            { swizzleIsEnabled: false },
-        ),
-        makePluginConfig('@docupotamus/docusaurus-theme-task-list'),
-        makePluginConfig('./plugin'),
-    );
 
     if ('gtag' in themeConfig) {
         throw new Error(
@@ -80,7 +61,7 @@ export default function preset(
 
     const plugins: PluginConfig[] = [];
     if (docs !== false) {
-        plugins.push(makePluginConfig('@docupotamus/docusaurus-plugin-editor', docs));
+        plugins.push(makePluginConfig('@docusaurus/plugin-content-docs', docs));
     }
     if (blog !== false) {
         plugins.push(makePluginConfig('@docusaurus/plugin-content-blog', blog));
@@ -102,12 +83,6 @@ export default function preset(
     if (isProd && sitemap !== false) {
         plugins.push(makePluginConfig('@docusaurus/plugin-sitemap', sitemap));
     }
-    plugins.push(
-        makePluginConfig(
-            '@docupotamus/docusaurus-plugin-read-time',
-            { swizzleIsEnabled: false },
-        ),
-    );
     if (Object.keys(rest).length > 0) {
         throw new Error(
             `Unrecognized keys ${Object.keys(rest).join(
@@ -116,14 +91,6 @@ export default function preset(
         );
     }
 
-    const lastTheme = themes.at(-1)?.toString() ?? '';
-    const isInternalTheme = (
-        lastTheme.includes('docusaurus-preset-classic')  // repository name
-        && lastTheme.endsWith('plugin/index.js')  // sub-directory name
-    );
-    if (lastTheme && !isInternalTheme) {
-        throw new Error(`Expected the last theme to be the preset's internal theme but instead found "${lastTheme}". Try checking the themes element order.`);
-    }
     return { plugins, themes };
 };
 
